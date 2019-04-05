@@ -15,13 +15,13 @@ class Navbar extends Component {
   <div className="collapse navbar-collapse" id="navbarNavDropdown">
     <ul className="navbar-nav">
       <li className="nav-item active">
-        <Link to="/Demo" className="nav-link">Authors<span className="sr-only">(current)</span></Link>
-      </li>
-      <li className="nav-item active">
         <Link to="/Info" className="nav-link">Info<span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item active">
         <Link to="/AuthorInfo" className="nav-link">AuthorInfo<span className="sr-only">(current)</span></Link>
+      <li className="nav-item active">
+        <Link to="/Authors" className="nav-link">Authors<span className="sr-only">(current)</span></Link>
+      </li>
       </li>
     </ul>
   </div>

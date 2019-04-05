@@ -26,24 +26,15 @@ componentWillMount(){
    this.updateValues();
 }
 
-checkArray = () =>{
- console.log("checking array", this.props.articles);
-}
 
-
-//setstate is async, so we need to do this
 async updateValues(){
-	console.log("results", this.props.results);
   for(var i = 0; i < this.props.results.length; i++){
    for(var k = 0; k < this.props.results[i].authors.length; k++){
       if(this.props.results[i].authors[k].name == this.props.author){
-       console.log("hit!", this.props.results[i]);
-       console.log("hit!", this.props.author);
        await this.setState({ articles: [...this.state.articles,this.props.results[i].title]} );
       }
    }
   }
- this.checkArray();
 }
 
  render(){ 
@@ -51,7 +42,7 @@ async updateValues(){
            <div>
     <header className="App-header">
      <h1 style={{ marginTop : '3%'}}>
-           AuthorInfo
+           Author Info
      </h1>
     </header>
    <div className="col-lg-4 col-md-4" >
