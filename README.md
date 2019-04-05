@@ -5,6 +5,9 @@ AFTER you have clicked on search (or defaultsearch), you can then navigate and c
 This is because everything is stored in the redux store. Rather than making new api calls (which would risk getting different articles across the pages), I just saved it all to a redux store.
 I understand that it is a bit sloppy, but I did this in roughly 7.5 hours because I have term projects and midterms right now.
 
+### Link:
+http://165.22.140.66:3000/
+
 ## How to Use
 * Clicking on `arXiv search` in the upper left corner will take you to the search page.
 * `DefaultSearch` (If topics form is empty) will search for "Computer Science Psychiatry Data Science Machine Learning"
