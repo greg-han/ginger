@@ -56,6 +56,7 @@ class Homepage extends Component {
       };
       //perhaps the most important place in this entire program to put a unit test would be in this
       //api call. I would test first for connection, and second for a valid response.
+      //Ideally, this would also be on the backend so that it isn't being computed client side and so that the material updates itself and is immediately ready to be served. The 30 most recent articles would still be stored into the redux store as soon as the browser window opens.
       await arxiv.search(search_query_no, function(err, results){
          articledate = 0; 
          for(var i =0; i < results.items.length;i++){

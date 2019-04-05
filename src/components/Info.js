@@ -59,13 +59,18 @@ async updateValues(){
         <p>{this.state.summary}</p>
     </div>
     <br />
-    <h3>Authors:</h3>
-     {this.state.authors.map((elem,i) =>
-          <Link to={"/AuthorInfo"} id={elem.name} onClick={() => {this.clickAuthor(elem.name)}} >
-              <b>{elem.name}</b>
-	      <br />
-          </Link>
-     )}
+    <div className="col-lg-4 col-md-4" >
+      <h3>Authors:</h3>
+       {this.state.authors.map((elem,i) =>
+            <Link to={"/AuthorInfo"} id={elem.name} onClick={() => {this.clickAuthor(elem.name)}} >
+                <b>{elem.name}</b>
+     	        <br />
+            </Link>
+       )}
+    <br />
+    <br />
+    <br />
+    </div> 
     </div>
 
    );   
