@@ -15,11 +15,9 @@ class AuthorInfo extends Component {
   constructor(props){
     super(props);
     this.state ={
-       article: this.props.article,
        results: this.props.results,
        author :  this.props.author,	     
-       summary: "",
-       articlesbyAuthor: []
+       articles: []
     }
      this.updateValues = this.updateValues.bind(this);
   }
@@ -28,19 +26,24 @@ componentWillMount(){
    this.updateValues();
 }
 
-
+checkArray = () =>{
+ console.log("checking array", this.props.articles);
+}
 
 
 //setstate is async, so we need to do this
 async updateValues(){
+	console.log("results", this.props.results);
   for(var i = 0; i < this.props.results.length; i++){
-    if(this.state.author == this.props.results[i].authors){
-      let inauthors = this.props.results[i].authors;
-      let insummary = this.props.results[i].summary;
-      await  this.setState({ authors : inauthors} );
-      await  this.setState({ summary : insummary});
-    }
+   for(var k = 0; k < this.props.results[i].authors.length; k++){
+      if(this.props.results[i].authors[k].name == this.props.author){
+       console.log("hit!", this.props.results[i]);
+       console.log("hit!", this.props.author);
+       await this.setState({ articles: [...this.state.articles,this.props.results[i].title]} );
+      }
+   }
   }
+ this.checkArray();
 }
 
  render(){ 
@@ -52,18 +55,18 @@ async updateValues(){
      </h1>
     </header>
    <div className="col-lg-4 col-md-4" >
-   <h3>{this.state.article}</h3>
-   <br /> <br />
-   <p>{this.state.summary}</p>
        </div>
            <br />
-   <h3>Authors:</h3>
-   {this.state.authors.map((elem,i) =>
-          <Link to={"/"} id={elem.name} >
-              <b>{elem.name}</b>
-           <br />
-          </Link>
+   <h3>Author:</h3>
+   {this.state.author}
+   <h3>Articles:</h3>
+   {this.state.articles.map((elem,i) =>
+	   <div>
+              <b>{elem}</b>
+	   <br />
+	   </div>
       )}
+           <br />
            <div>
            </div>
 </div>
