@@ -28,6 +28,8 @@ componentWillMount(){
 
 
 async updateValues(){
+  //Yes, ugly loop. Could fix this by abstracting objects into different data structures
+  //This is another great place for a unit test.
   for(var i = 0; i < this.props.results.length; i++){
    for(var k = 0; k < this.props.results[i].authors.length; k++){
       if(this.props.results[i].authors[k].name == this.props.author){
@@ -39,28 +41,26 @@ async updateValues(){
 
  render(){ 
    return(
-           <div>
-    <header className="App-header">
-     <h1 style={{ marginTop : '3%'}}>
+     <div>
+       <header className="App-header">
+         <h1 style={{ marginTop : '3%'}}>
            Author Info
-     </h1>
-    </header>
-   <div className="col-lg-4 col-md-4" >
+         </h1>
+       </header>
+       <div className="col-lg-4 col-md-4" >
+         <br />
+         <h3>Author:</h3>
+           {this.state.author}
+         <h3>Articles:</h3>
+           {this.state.articles.map((elem,i) =>
+	     <div>
+               <b>{elem}</b>
+	       <br />
+	     </div>
+           )}
+         <br />
        </div>
-           <br />
-   <h3>Author:</h3>
-   {this.state.author}
-   <h3>Articles:</h3>
-   {this.state.articles.map((elem,i) =>
-	   <div>
-              <b>{elem}</b>
-	   <br />
-	   </div>
-      )}
-           <br />
-           <div>
-           </div>
-</div>
+     </div>
 
    );
  }

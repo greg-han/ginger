@@ -33,27 +33,33 @@ class Homepage extends Component {
   }
    async updateResults(){
      await this.props.resultsAction(this.state.thirtyresults);
-     //console.log("results",this.props.results);
    }
 
    updateArticle =  (title) => {
         this.props.articleAction(title); 
-        //console.log("arttprops",this.props.article);
    }
 
-   async callarvix(){
-      let thirtydays = 2592000000;
-      let now = new Date().getTime();
-      let search = this.state.searchQueries[0];
-      let articledate = new Date();
+   async callarvix(searchy){
       let thirtyresultsinside = [];
+      //you can add a custom topic search!
+      let searchterms = "datascience computer science psychiatry";
+      if(searchy){
+        searchterms = searchy;
+      }
+      //this is 30 days in milliseconds.
+      let thirtydays = 2592000000;
+      //this is time of whenever this line of code is called in millisceonds from UTC start time 
+      let now = new Date().getTime();
+      let articledate = new Date();
       let search_query_no = {
-        category: "data science computer science psychiatry",
+        category: searchterms,
       };
+      //perhaps the most important place in this entire program to put a unit test would be in this
+      //api call. I would test first for connection, and second for a valid response.
       await arxiv.search(search_query_no, function(err, results){
          articledate = 0; 
-         console.log("Results", results);
          for(var i =0; i < results.items.length;i++){
+           //filters for all of the articles that have been produced in the last 30 days
            articledate = new Date(results.items[i].updated).getTime();
            if((now - articledate)  <=  thirtydays){
             if(thirtyresultsinside.length < 30){
@@ -62,12 +68,12 @@ class Homepage extends Component {
 	   }
 	 }
          this.setState({thirtyresults : thirtyresultsinside});
-         console.log("thirtyresults",this.state.thirtyresults);
          this.checkLoop();
          this.updateResults();
       }.bind(this));
    }
 
+   //recursively calls the above funtion until 30 values are met
    checkLoop = () =>{
      if(this.state.thirtyresults.length < 30){
       this.callarvix();
@@ -77,31 +83,34 @@ class Homepage extends Component {
    storeQuery = (event) => {
      //this freezes and prevents refresh
      event.preventDefault();
+     let words = this.search.value;
+     //may need this later for a profile based query system
      this.setState({searchQueries : [...this.state.searchQueries, this.search.value]});
-     this.callarvix();
+     this.callarvix(words);
   } 
 
  render(){ 
    return(
-	   <div>
-   <div className="App-header">
-     <h1>
-	   arXiv Search
-     </h1>
-     <form className="form-inline"  onSubmit={this.storeQuery}>
-      <input  className="form-control" type="location" ref={(e) => this.search= e } type="search" placeholder="topics" aria-label="Search" />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
-   </form>
-	   </div>
-   {this.state.thirtyresults.map((elem,i) =>
+   <div>
+     <div className="App-header">
+       <h1>
+       arXiv Search
+       </h1>
+       <form className="form-inline"  onSubmit={this.storeQuery}>
+         <input  className="form-control" type="location" ref={(e) => this.search= e } type="search" placeholder="topics" aria-label="Search" />
+           <button className="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+           <button className="btn btn-outline-success my-2 my-sm-0" type="submit" >DefaultSearch</button>
+       </form>
+       </div>
+         {this.state.thirtyresults.map((elem,i) =>
           <div className="col-lg-4 col-md-4" >
-          <Link to={"/Info"}className="thumbnail" id={elem.title} onClick={() => {this.updateArticle(elem.title)}} >
+            <Link to={"/Info"}className="thumbnail" id={elem.title} onClick={() => {this.updateArticle(elem.title)}} >
               <b>{elem.title}</b>
-          </Link>
-	  <br />
-	  <br />
+            </Link>
+	    <br />
+	    <br />
           </div>
-      )}
+         )}
     </div>
    );   
  }

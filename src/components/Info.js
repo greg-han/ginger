@@ -29,45 +29,44 @@ componentWillMount(){
 
 clickAuthor = (author) => {
  this.props.authorAction(author);
-// console.log("Author then", author);
 }
 
-//setstate is async, so we need to do this
+//This is another great place to put unit tests. Any async operation can be potentially buggy.
 async updateValues(){
   for(var i = 0; i < this.props.results.length; i++){
+    //searches the 30 results for the matching article that was clicked in the search page 
+    //this is all possible with redux state.
     if(this.state.article == this.props.results[i].title){
       let inauthors = this.props.results[i].authors;
       let insummary = this.props.results[i].summary;
-      await  this.setState({ authors : inauthors} ); 
-      await  this.setState({ summary : insummary}); 
+      await this.setState({ authors : inauthors} ); 
+      await this.setState({ summary : insummary}); 
     }
   }
 }
 
  render(){ 
    return(
-	   <div>
+    <div>
     <header className="App-header"> 
-     <h1 style={{ marginTop : '3%'}}>
-	   Info
-     </h1>
+      <h1 style={{ marginTop : '3%'}}>
+        Info
+      </h1>
     </header>
-   <div className="col-lg-4 col-md-4" >
-   <h3>{this.state.article}</h3> 
-   <br /> <br />
-   <p>{this.state.summary}</p>
-       </div>
-	   <br />
-   <h3>Authors:</h3>
-   {this.state.authors.map((elem,i) =>
+    <div className="col-lg-4 col-md-4" >
+      <h3>{this.state.article}</h3> 
+        <br /> <br />
+        <p>{this.state.summary}</p>
+    </div>
+    <br />
+    <h3>Authors:</h3>
+     {this.state.authors.map((elem,i) =>
           <Link to={"/AuthorInfo"} id={elem.name} onClick={() => {this.clickAuthor(elem.name)}} >
               <b>{elem.name}</b>
-	   <br />
+	      <br />
           </Link>
-      )}
-	   <div>
-	   </div>
-</div>
+     )}
+    </div>
 
    );   
  }
