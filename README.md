@@ -8,7 +8,7 @@ I understand that it is a bit sloppy, but I did this in roughly 7.5 hours becaus
 http://165.22.138.156:3000/
 
 ## How to Use
-* Clicking on `arXiv search` in the upper left corner will take you to the search page.
+* Clicking on `arXivSearch` in the upper left corner will take you to the search page.
 * `DefaultSearch` (If topics form is empty) will search for "Computer Science Psychiatry Data Science Machine Learning"
 * If you fill the search form with input, and click on `Search` you will search the topics in the search form!
 * You will need to wait as the app calls the arVix api. This may take upwards of 10 seconds. (Ideally api call would be on the backend).
@@ -19,7 +19,7 @@ http://165.22.138.156:3000/
 * Clicking on an author on this page will take you to the author page mentioned earlier.
 
 Notes: In the navbar, `Info` will take you to the currently loaded article. `AuthorInfo` will take you to a page
-with the last clicked author. Clicking on `Arvix search` in the upper left corner will take you back to the search menu and refresh the redux store and ready the app for another search.
+with the last clicked author. Clicking on `ArvixSearch` in the upper left corner will take you back to the search menu and refresh the redux store and ready the app for another search.
 
 
 Again, this was done VERY quickly. Please excuse the bugs!
