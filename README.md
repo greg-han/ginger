@@ -1,4 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 # arVix Search tool!
 This app is structured such that you need to first click on search in order to find the relevant articles.
 AFTER you have clicked on search (or defaultsearch), you can then navigate and check the requirements as necessary.
@@ -12,7 +11,7 @@ http://165.22.140.66:3000/
 * Clicking on `arXiv search` in the upper left corner will take you to the search page.
 * `DefaultSearch` (If topics form is empty) will search for "Computer Science Psychiatry Data Science Machine Learning"
 * If you fill the search form with input, and click on `Search` you will search the topics in the search form!
-* You will need to wait as the app calls the arVix api. This shouldn't take more than 10 seconds.
+* You will need to wait as the app calls the arVix api. This may take upwards of 10 seconds. (Ideally api call would be on the backend).
 * Once you see the results, the information is loaded into a redux store.
 * Click on an article name to receive a brief summary as well as a list of authors
 * Click on any of the authors to see which articles they have published.
