@@ -5,9 +5,6 @@ This is because everything is stored in the redux store. Rather than making new 
 I understand that it is a bit sloppy, but I did this in roughly 7.5 hours because I have term projects and midterms right now.
 My ideal solution would have involved doing the api on the backend so that when a person opens the app, the latest values (last 30 days of articles) would immediately be loaded into the redux store for data manipulation.
 
-### Link:
-http://165.22.138.156:3000/
-
 ## How to Use
 * Clicking on `arXivSearch` in the upper left corner will take you to the search page.
 * `DefaultSearch` (If topics form is empty) will search for "Computer Science Psychiatry Data Science Machine Learning"
