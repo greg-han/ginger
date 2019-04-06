@@ -27,7 +27,7 @@ with the last clicked author. Clicking on `ArvixSearch` in the upper left corner
 
 Again, this was done VERY quickly. Please excuse the bugs!
 
-Thank you for giving me this coding challenge.
+Thank you for giving me this coding challenge. I hope to hear from you guys soon.
 
 -Greg
  
