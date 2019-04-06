@@ -12,6 +12,8 @@ http://165.22.138.156:3000/
 * Clicking on `arXivSearch` in the upper left corner will take you to the search page.
 * `DefaultSearch` (If topics form is empty) will search for "Computer Science Psychiatry Data Science Machine Learning"
 * If you fill the search form with input, and click on `Search` you will search the topics in the search form!
+  eg. you can input "Biology Crispr Data Science" into the search bar and click Search and it will return a list that attempts
+  to match those topics.
 * You will need to wait as the app calls the arVix api. This may take upwards of 10 seconds. (Ideally api call would be on the backend).
 * Once you see the results, the information is loaded into a redux store.
 * Click on an article name to receive a brief summary as well as a list of authors
