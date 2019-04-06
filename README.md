@@ -3,6 +3,7 @@ This app is structured such that you need to first click on search in order to f
 AFTER you have clicked on search (or defaultsearch), you can then navigate and check the requirements as necessary.
 This is because everything is stored in the redux store. Rather than making new api calls (which would risk getting different articles across the pages), I just saved it all to a redux store.
 I understand that it is a bit sloppy, but I did this in roughly 7.5 hours because I have term projects and midterms right now.
+My ideal solution would have involved doing the api on the backend so that when a person opens the app, the latest values (last 30 days of articles) would immediately be loaded into the redux store for data manipulation.
 
 ### Link:
 http://165.22.138.156:3000/
