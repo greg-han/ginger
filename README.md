@@ -29,4 +29,7 @@ Again, this was done VERY quickly. Please excuse the bugs!
 Thank you for giving me this coding challenge. I hope to hear from you guys soon.
 
 -Greg
+
+* Note: A reviewer may see commits past the due date of the project. This is because my digital ocean droplet got hacked and I was trying to fix the hacking. All logic remains the same since the due date.
+
  
