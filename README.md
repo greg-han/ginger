@@ -2,10 +2,7 @@
 This app is structured such that you need to first click on search in order to find the relevant articles.
 AFTER you have clicked on search (or defaultsearch), you can then navigate and check the requirements as necessary.
 This is because everything is stored in the redux store. Rather than making new api calls (which would risk getting different articles across the pages), I just saved it all to a redux store.
-I understand that it is a bit sloppy, but I did this in roughly 7.5 hours because I have term projects and midterms right now.
-My ideal solution would have involved doing the api on the backend so that when a person opens the app, the latest values (last 30 days of articles) would immediately be loaded into the redux store for data manipulation.
 
-### Link : http://138.68.229.28:3000/
 
 ## How to Use
 * Clicking on `arXivSearch` in the upper left corner will take you to the search page.
@@ -22,14 +19,4 @@ My ideal solution would have involved doing the api on the backend so that when 
 
 Notes: In the navbar, `Info` will take you to the currently loaded article. `AuthorInfo` will take you to a page
 with the last clicked author. Clicking on `ArvixSearch` in the upper left corner will take you back to the search menu and refresh the redux store and ready the app for another search.
-
-
-Again, this was done VERY quickly. Please excuse the bugs!
-
-Thank you for giving me this coding challenge. I hope to hear from you guys soon.
-
--Greg
-
-* Note: A reviewer may see commits past the due date of the project. This is because my digital ocean droplet got hacked and I was trying to fix the hacking. I have also updated this readme a few times to update the link and to add some additional clarification for the project. All coding logic remains the same since the due date.
-
  
